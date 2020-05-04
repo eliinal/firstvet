@@ -1,67 +1,15 @@
 <template>
   <div id="app" class="container is-fluid">
     <h1 class="title has-text-centered">Survey</h1>
-    <survey-container :questions="questions" /> 
+    <router-view />
   </div>
 </template>
 
 <script>
-  import SurveyContainer from './components/SurveyContainer.vue'
+  
 
   export default {
     name: 'app',
-    components: {
-      SurveyContainer,
-    },
-    data() {
-      return {
-        questions: [
-          {
-            id: 1,
-            name: 'What kind of animals do you have?',
-            type: 'checkbox',
-            options: ["Cat", "Dog", "Horse", "Rodent", "Fish", "Bird", "Bunny"],
-            answer: []
-          },
-          { 
-            id: 2,
-            name: 'Would you recommend FirstVet to a friend?',
-            type: 'radio',
-            options: ["Yes", "No", "Not sure"],
-            answer: ''
-          },
-          {
-            id: 3,
-            name: 'How pleased were you with the help you received (1-10)?',
-            type: 'scale',
-            answer: 0
-          },
-          {
-            id: 4,
-            name: 'Do you have anything other you wish to tell us?',
-            type: 'freetext',
-            answer: ''
-          },
-          {
-            id: 5,
-            name: 'This is a test question',
-            type: 'radio',
-            options: ["Hej", "Hoj", "Hehehe"],
-            answer: ''
-          },
-            {
-            id: 6,
-            name: 'What kind of animals do you have?',
-            type: 'checkbox',
-            options: ["Cat3", "Dog5", "Horse7", "Rodent", "Fish", "Bird", "Bunny8"],
-            answer: []
-          },
-        ],
-      }
-    },
-    methods: {
-  
-    }
   }
 </script>
 

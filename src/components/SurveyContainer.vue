@@ -1,13 +1,7 @@
 <template>
   <div class="survey-container">
-    <div 
-      v-if="submitted == true" 
-    >
-      <h3 class="subtitle has-text-centered">Summary</h3>
-      <Summary :questions="questions" />
-    </div>
-    <form v-else>
-      <div v-for="question in questions" :key="question.id" class="inputs">
+    <form>
+      <div v-for="question in this.$store.state.questions" :key="question.id" class="inputs">
           <label 
             for="question.id"
             class="subtitle has-text-centered"
@@ -95,22 +89,20 @@
     components: {
       Summary
     },
-    props: {
-        questions: Array,
-    }, 
-    data () {
+    data() {
       return {
         min: 0,
         max: 10,
         submitted: false,
       }
-    }, 
+    },
     methods: {
       handleSubmit() {
-        this.submitted = true
+        console.log("questions", this.$store.state.questions);
+        this.$router.push({name: 'summary'})
       },
       clearData() {
-        this.questions.forEach(question => {
+        this.$store.state.questions.forEach(question => {
           if (question.type === 'radio' || question.type === 'freetext') {
             question.answer = ''
           } else if (question.type === 'checkbox') {
