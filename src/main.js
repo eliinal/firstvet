@@ -10,12 +10,12 @@ Vue.use(Buefy)
 Vue.use(Vuex)
 
 import Summary from './components/Summary.vue'
-import SurveyContainer from './components/SurveyContainer.vue' 
+import Survey from './components/Survey.vue' 
 import App from './App.vue'
 
 const router = new VueRouter({
   routes: [
-    { path: '/', component: SurveyContainer, name: "home" },
+    { path: '/', component: Survey, name: "home" },
     { path: '/summary', component: Summary, name: "summary"}]
 })
 
@@ -44,23 +44,22 @@ const store = new Vuex.Store({
       },
       {
         id: 4,
-        name: 'Do you have anything other you wish to tell us?',
+        name: 'Why were you in contact with us?',
         type: 'freetext',
         answer: ''
       },
       {
         id: 5,
-        name: 'This is a test question',
-        type: 'radio',
-        options: ["Hej", "Hoj", "Hehehe"],
-        answer: ''
-      },
-        {
-        id: 6,
-        name: 'What kind of animals do you have?',
+        name: 'Where did you hear about us?',
         type: 'checkbox',
-        options: ["Cat3", "Dog5", "Horse7", "Rodent", "Fish", "Bird", "Bunny8"],
+        options: ["Vet recommendation", "Social media", "News article", "Advertising", "Other"],
         answer: []
+      },
+      {
+        id: 6,
+        name: 'Do you have anything other you wish to tell us?',
+        type: 'freetext',
+        answer: ''
       },
     ],
   }
